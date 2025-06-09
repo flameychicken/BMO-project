@@ -1,0 +1,8 @@
+pygame
+vosk
+pyttsx3
+SpeechRecognition
+qrcode
+spotipy
+flask
+sounddevice

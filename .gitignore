@@ -1,1 +1,23 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*$py.class
 
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+
+# macOS files
+.DS_Store
+
+# VSCode / IDE configs
+.vscode/
+.idea/
+
+# Python environment files
+*.log
+
+# System folders
+*.swp
