@@ -1,0 +1,6 @@
+vosk
+sounddevice
+pydub
+numpy
+llama-cpp-python
+torch

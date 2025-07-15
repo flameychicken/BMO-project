@@ -19,5 +19,27 @@ ENV/
 # Python environment files
 *.log
 
-# System folders
+# System folders and files
 *.swp
+*.tmp
+
+# Audio output files
+*.wav
+*.mp3
+
+# Model files (if you don't want to track large models)
+models/
+*.onnx
+*.gguf
+
+# Zip or archives
+*.zip
+
+# Pip cache and wheel files
+*.whl
+pip-wheel-metadata/
+
+# PyInstaller build files
+dist/
+build/
+*.spec
