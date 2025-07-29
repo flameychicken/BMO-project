@@ -1,11 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import BMOFace from './assets/BMO-Face.png';
+import BMOExcited from './assets/BMOExcited.png';
+import BMOHappy from './assets/BMOHappy.png';
+import BMOCaring from './assets/BMOCaring.png';
+import BMOCurious from './assets/BMOCurious.png';
 import BMORight from './assets/BMORight.png';
 import BMOLeft from './assets/BMOLeft.png';
 
 export default function BMO() {
     const [currentMessage, setCurrentMessage] = useState('');
+    const [bmoMood, setBmoMood] = useState('happy');
     const [chatHistory, setChatHistory] = useState(() => {
     const savedHistory = localStorage.getItem('bmoChatHistory');
     return savedHistory
@@ -17,7 +21,8 @@ export default function BMO() {
     const messagesEndRef = useRef(null);
 
     const scrollToBottom = () => {
-        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+        const container = messagesEndRef.current?.parentElement;
+        if (container) container.scrollTop = 0;
     };
 
     useEffect(() => {
@@ -58,6 +63,11 @@ export default function BMO() {
                 text: data.response || "Hmm, I didn't catch that!"
             };
             setChatHistory(prev => [...prev, bmoReply]);
+
+            if (data.bmo_mood) {
+                setBmoMood(data.bmo_mood);
+            }
+            
         } catch (err) {
             console.error(err);
             setChatHistory(prev => [...prev, { author: 'bmo', text: "Error talking to BMO!" }]);
@@ -66,11 +76,25 @@ export default function BMO() {
         }
     };
 
+    const getBmoFace = () => {
+        switch (bmoMood) {
+            case 'curious':
+                return BMOCurious;
+            case 'caring':
+                return BMOCaring;
+            case 'excited':
+                return BMOExcited;
+            case 'happy':
+            default:
+                return BMOHappy;
+        }
+    };
+
 
     return (
         <div className='background'>
             <div className='imgContainer'>
-                <img src={BMOFace} alt="BMO's Face"></img>
+                <img src={getBmoFace()} alt={`BMO's ${bmoMood} face`} />
             </div>
             <div className='chatBot'>
                 <div className='column'><div className='column'><img src={BMOLeft} alt="BMO Left buttons" style={{border: '0'}}></img></div></div>
