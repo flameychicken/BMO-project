@@ -51,9 +51,9 @@ export default function BMO() {
                 },
                 body: JSON.stringify({
                     prompt: userInput,
-                    max_tokens: 150,             // You can make this configurable if needed
-                    temperature: 0.8,            // You can make this dynamic via UI controls
-                    reset_conversation: false    // Set this to true if you want to support memory resets
+                    max_tokens: 150,           
+                    temperature: 0.8,            
+                    reset_conversation: false   
                 })
             });
 
@@ -89,7 +89,6 @@ export default function BMO() {
                 return BMOHappy;
         }
     };
-
 
     return (
         <div className='background'>
