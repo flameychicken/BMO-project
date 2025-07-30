@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color: #dffaff;
+}
+
+.chat-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-bottom: 80px;
+}
+
+.header {
+  text-align: center;
+  color: #3c8dbc;
+  font-size: 2.5em;
+}
+
+.mood {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.chat-box {
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+  height: 400px;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.bubble-row {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.bubble-row.user {
+  justify-content: flex-end;
+}
+
+.bubble-row.bmo {
+  justify-content: flex-start;
+}
+
+.bubble {
+  background: #ffdaff;
+  color: #222;
+  padding: 12px 15px;
+  border-radius: 20px;
+  max-width: 70%;
+  font-size: 1em;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.bubble-row.user .bubble {
+  background: #c7f2ff;
+}
+
+.input-bar {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 600px;
+  background: #ffffff;
+  padding: 10px;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  gap: 8px;
+}
+
+.input-bar input {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #aee3f9;
+  border-radius: 10px;
+  font-size: 1em;
+}
+
+.input-bar button {
+  padding: 10px 15px;
+  background-color: #4bc3e5;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.reset-btn {
+  background-color: #f95d9b;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: #bbb;
+  border-radius: 50%;
+  animation: bounce 0.8s infinite alternate;
+}
+
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-8px); }
+}

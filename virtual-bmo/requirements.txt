@@ -6,3 +6,5 @@ qrcode
 spotipy
 flask
 sounddevice
+dotenv
+Pillow

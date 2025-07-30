@@ -57,7 +57,26 @@ def listen():
 # === Response Logic ===
 def respond(command):
     if "music" in command:
-        return "Okay! Let's play music."
+        from music_control.spotify_auth import get_token
+        speak("Scan this code to connect Spotify.")
+
+        # Generate QR and wait for auth
+        get_token()
+
+        # Load QR code image and display it
+        qr_path = os.path.join("assets", "spotify_qr.png")
+        if os.path.exists(qr_path):
+            qr_image = pygame.image.load(qr_path)
+            qr_image = pygame.transform.scale(qr_image, (200, 200))
+            screen.blit(qr_image, (140, 60))  # center the QR
+            pygame.display.flip()
+            pygame.time.delay(5000)  # show QR for 5 seconds
+        else:
+            print("❌ QR code not found")
+
+        from music_control.playback import play_music
+        play_music()
+        return "Now playing music!"
     elif "game" in command:
         from games.snake_game import run_snake_game
         speak("Launching game mode!")
